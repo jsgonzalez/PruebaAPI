@@ -1,0 +1,26 @@
+{
+  "name": "pruebaapi",
+  "version": "1.0.0",
+  "description": "Prueba del API en NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsgonzalez/PruebaAPI.git"
+  },
+  "author": "Jesus Sergio Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsgonzalez/PruebaAPI/issues"
+  },
+  "homepage": "https://github.com/jsgonzalez/PruebaAPI#readme",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15",
+    "nodemon": "^2.0.4"
+  }
+}
