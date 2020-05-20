@@ -1,6 +1,11 @@
 {
     "server" : {
         "port" : 3000,
-        "mongoServer" : "mongodb://localhost:27017/calendario"
+        "mongoServer" : "mongodb://localhost:27017/calendario",
+        "apiRoot" : "/api"
+    },
+    "jwt" : {
+        "JWT_SECRET" : "Sergua123a",
+        "expires" :  3600
     }
 }
