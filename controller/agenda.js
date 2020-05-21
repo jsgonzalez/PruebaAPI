@@ -19,7 +19,7 @@ exports.agendaById = (req, res, next, id) => {
 
 exports.agendaByUser = (req, res) => {
 
-    Agenda.find({creadoPor : req.profile._id})
+    Agenda.find( { creadoPor : req.profile._id})
     .sort("created")
     .exec((err, agendas) => {
         if(err){
@@ -47,6 +47,7 @@ exports.createAgenda = (req, res) => {
     newAgenda.iniciaHora = iniciaHora;
     newAgenda.finalizaDia = finalizaDia;
     newAgenda.finalizaHora = finalizaHora;
+    newAgenda.creadoPor = req.profile.id;
 
     Agenda.create(newAgenda).then( result => {
     
@@ -64,4 +65,31 @@ exports.createAgenda = (req, res) => {
         res.status(500).json({ error })
     })
 
+}
+
+exports.byId = (req, res) => {
+    return res.send(req.agenda);
+}
+
+exports.updateAgenda = (req, res) => {
+
+    const { titulo, iniciaDia, iniciaHora, finalizaDia, finalizaHora } = req.body;
+
+    Agenda.findByIdAndUpdate(req.agenda.id, { 
+        titulo, iniciaDia, iniciaHora, finalizaDia, finalizaHora 
+    }, result =>{
+
+          res.status(200).json({
+            message : "Registro actualizado correctamente"
+        })
+    }, error => res.status(500).json({error})) ;
+}
+
+exports.deleteAgenda = (req, res) => {
+    Agenda.findByIdAndRemove(req.agenda._id, result=>{
+
+          res.status(200).json({
+            message : "Registro borrado correctamente"
+        })
+    }, error => res.status(500).json({error})) ;
 }
