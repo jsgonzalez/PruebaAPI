@@ -14,7 +14,8 @@ mongoose.connect(server.mongoServer, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify : false
 })
 .then(() => console.log(`Server iniciado ${server.mongoServer}`))
 .catch(err => console.log(err.reason));
